@@ -50,15 +50,15 @@ struct MainView: View {
                     RoundedRectangle(cornerRadius: 16)
                         .shadow(color: Color("shadow"), radius: 8, y: 4)
                     VStack(spacing: 20) {
-                        Text("🧙‍♂️")
+                        Text(card[cardNumber].cardEmoji)
                             .foregroundColor(.black)
                             .font(.system(size: 40, weight: .bold))
-                        Text("옹달샘 현자를 찾아서...")
+                        Text(card[cardNumber].cardTitle)
                             .foregroundColor(.black)
                             .font(.system(size: 32, weight: .bold))
                             .multilineTextAlignment(.center)
                             .frame(width: 280)
-                        Text("다같이 일어나서 카페테리아로 갑니다. 물을 한 잔 마시고 가장 먼저 눈이 마주친 멘토에게 조언을 구합니다.")
+                        Text(card[cardNumber].cardDescription)
                             .foregroundColor(.black)
                             .font(.system(size: 16))
                             .lineSpacing(4)
@@ -76,6 +76,7 @@ struct MainView: View {
                 .onTapGesture {
                     withAnimation {
                         isCardTapped.toggle()
+                        cardNumber = Int.random(in: 0..<card.count)
                     }
                 }
             }
