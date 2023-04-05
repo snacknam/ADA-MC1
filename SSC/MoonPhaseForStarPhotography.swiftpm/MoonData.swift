@@ -7,18 +7,6 @@
 
 import Foundation
 
-extension Date {
-    static let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        return dateFormatter
-    }()
-    
-    init(_ text: String) {
-        self = Self.dateFormatter.date(from: text)!
-    }
-}
-
 struct MoonData {
     
     let moonExpression: [Moon] = [
@@ -32,4 +20,25 @@ struct MoonData {
         Moon(title: "waning crescent", description: "today is waning crescent."),
     ]
     
+}
+
+func moonPhase() -> Int {
+    let lunarPhaseStart = Date("01/07/1970")
+    let daysSinceStart = Calendar.current.dateComponents(
+        [.day],
+        from: lunarPhaseStart,
+        to: Date()
+    ).day!
+
+    let seconds = daysSinceStart * 86400 + 12300
+    let lunarMonths = seconds % 2551443
+    let lunarMonthPart = lunarMonths / 637861
+    let secondsSinceMainPhase = lunarMonths % 637861
+
+    let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
+
+//        let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
+//        let lunarPhase = lunarPhases[index]
+
+    return index
 }
