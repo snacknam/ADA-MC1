@@ -17,6 +17,7 @@ let package = Package(
             name: "MoonPhaseForStarPhotography",
             targets: ["AppModule"],
             bundleIdentifier: "com.kwansiknam.MoonPhaseForStarPhotography",
+            teamIdentifier: "Q535Z3S7Z3",
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .bicycle),
@@ -26,11 +27,9 @@ let package = Package(
                 .phone
             ],
             supportedInterfaceOrientations: [
-                .portrait,
-                .landscapeRight,
-                .landscapeLeft,
-                .portraitUpsideDown(.when(deviceFamilies: [.pad]))
-            ]
+                .portrait
+            ],
+            appCategory: .weather
         )
     ],
     targets: [
