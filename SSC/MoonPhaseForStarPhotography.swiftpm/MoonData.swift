@@ -21,27 +21,6 @@ extension Date {
 
 struct MoonData {
     
-    mutating func moonPhase() -> Int {
-        let lunarPhaseStart = Date("01/07/1970")
-        let daysSinceStart = Calendar.current.dateComponents(
-            [.day],
-            from: lunarPhaseStart,
-            to: Date()
-        ).day!
-
-        let seconds = daysSinceStart * 86400 + 12300
-        let lunarMonths = seconds % 2551443
-        let lunarMonthPart = lunarMonths / 637861
-        let secondsSinceMainPhase = lunarMonths % 637861
-
-        let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
-
-//        let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
-//        let lunarPhase = lunarPhases[index]
-
-        return index
-    }
-    
     let moonExpression: [Moon] = [
         Moon(title: "new moon", description: "today is new moon."),
         Moon(title: "waxing crescent", description: "today is waxing crescent."),

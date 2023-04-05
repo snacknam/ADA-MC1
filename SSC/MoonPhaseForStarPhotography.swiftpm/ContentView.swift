@@ -4,7 +4,6 @@ struct ContentView: View {
     
     @State var today = Date()
     var todayMoon = MoonData()
-    lazy var moonPhaseIndex = todayMoon.moonPhase()
     
     var dayFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -25,7 +24,7 @@ struct ContentView: View {
                             }
                         }
                     .font(.system(size: 24))
-                    Text(todayMoon.moonExpression[moonPhaseIndex].title)
+                    Text(todayMoon.moonExpression[moonPhase()].title)
                         .foregroundColor(.white)
                         .font(.system(size: 40, weight: .medium))
                 }
@@ -38,7 +37,7 @@ struct ContentView: View {
                         .foregroundColor(Color("moon"))
                 }
                 .frame(width: 200, height: 200)
-                Text(todayMoon.moonExpression[0].description)
+                Text(todayMoon.moonExpression[moonPhase()].description)
                     .foregroundColor(.white)
                     .font(.system(size: 20))
                     .multilineTextAlignment(.center)
@@ -47,5 +46,26 @@ struct ContentView: View {
             }
         }
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    func moonPhase() -> Int {
+        let lunarPhaseStart = Date("01/07/1970")
+        let daysSinceStart = Calendar.current.dateComponents(
+            [.day],
+            from: lunarPhaseStart,
+            to: Date()
+        ).day!
+
+        let seconds = daysSinceStart * 86400 + 12300
+        let lunarMonths = seconds % 2551443
+        let lunarMonthPart = lunarMonths / 637861
+        let secondsSinceMainPhase = lunarMonths % 637861
+
+        let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
+
+//        let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
+//        let lunarPhase = lunarPhases[index]
+
+        return index
     }
 }
