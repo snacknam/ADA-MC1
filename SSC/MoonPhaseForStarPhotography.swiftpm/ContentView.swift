@@ -1,4 +1,9 @@
 import SwiftUI
+import AVFoundation
+
+
+var player: AVAudioPlayer?
+
 
 struct ContentView: View {
     
@@ -9,6 +14,15 @@ struct ContentView: View {
             MainView()
         }
         .edgesIgnoringSafeArea(.all)
+        .onAppear {
+            guard let url = Bundle.main.url(forResource: "DeepSpace", withExtension: "mp3") else { return }
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.play()
+            } catch (let err) {
+                print(err.localizedDescription)
+            }
+        }
     }
 }
 
@@ -29,7 +43,7 @@ struct StarView: View {
                             y: CGFloat.random(in: -100...UIScreen.main.bounds.height+100)
                         )
                 }
-                ForEach(0..<50) { _ in
+                ForEach(0..<100) { _ in
                     Circle()
                         .fill(Color("moon"))
                         .opacity(0.35)
@@ -39,7 +53,7 @@ struct StarView: View {
                             y: CGFloat.random(in: -100...UIScreen.main.bounds.height+100)
                         )
                 }
-                ForEach(0..<50) { _ in
+                ForEach(0..<100) { _ in
                     Circle()
                         .fill(Color("moon"))
                         .opacity(0.5)
@@ -50,10 +64,10 @@ struct StarView: View {
                         )
                 }
             }
-            .animation(Animation.linear(duration: 100).repeatForever(), value: position) // 무한 반복 애니메이션
+            .animation(Animation.linear(duration: 60).repeatForever(), value: position)
             .onAppear {
                 self.position = randomCirclePosition(in: geometry.size)
-                Timer.scheduledTimer(withTimeInterval: 100, repeats: true) { _ in
+                Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
                     self.position = randomCirclePosition(in: geometry.size)
                 }
             }
@@ -156,10 +170,3 @@ struct MainView: View {
 //        return CGPoint(x: x, y: y)
 //    }
 //}
-
-struct Previews_ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .previewInterfaceOrientation(.landscapeLeft)
-    }
-}
