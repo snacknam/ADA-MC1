@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Moon {
+struct Moons {
     let title: String
     let description: String
 }
