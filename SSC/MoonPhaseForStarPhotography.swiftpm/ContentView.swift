@@ -15,7 +15,7 @@ struct ContentView: View {
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear {
-            guard let url = Bundle.main.url(forResource: "DeepSpace", withExtension: "mp3") else { return }
+            guard let url = Bundle.main.url(forResource: "bgm", withExtension: "mp3") else { return }
             do {
                 player = try AVAudioPlayer(contentsOf: url)
                 player?.numberOfLoops = -1
