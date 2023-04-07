@@ -4,14 +4,15 @@ import AVFoundation
 
 var player: AVAudioPlayer?
 
-
 struct ContentView: View {
+    
+    @State var today = Date()
     
     var body: some View {
         ZStack {
             Color("bg")
-            StarView()
-            MainView()
+            StarView(today: $today)
+            MainView(today: $today)
         }
         .edgesIgnoringSafeArea(.all)
         .onAppear {
@@ -29,7 +30,7 @@ struct ContentView: View {
 
 struct MainView: View {
     
-    @State var today = Date()
+    @Binding var today: Date
     
     var todayMoon = MoonData()
     
@@ -46,16 +47,16 @@ struct MainView: View {
                     .foregroundColor(.white)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                            self.today = today
+                            today = today
                         }
                     }
                     .font(.system(size: 32, weight: .light))
-                Text(todayMoon.moonExpression[moonPhase()].title)
+                Text(todayMoon.moonExpression[moonPhase(today)].title)
                     .foregroundColor(.white)
                     .font(.system(size: 64, weight: .medium))
             }
-            MoonView()
-            Text(todayMoon.moonExpression[moonPhase()].description)
+            MoonView(today: $today)
+            Text(todayMoon.moonExpression[moonPhase(today)].description)
                 .foregroundColor(.white)
                 .font(.system(size: 24, weight: .light))
                 .multilineTextAlignment(.center)
@@ -64,7 +65,7 @@ struct MainView: View {
         }
         .onTapGesture {
             today = Calendar.current.date(byAdding: .day, value: 1, to: today)!
-            print(today)
+            print("메인\(today)")
         }
     }
 }
