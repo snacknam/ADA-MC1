@@ -12,14 +12,14 @@ struct StarView: View {
     @State var position = CGPoint(x: 0, y: 0)
     
     @State var opacity: [[Double]] = [
+        [0.5, 0.6, 0.7],
         [0.4, 0.5, 0.6],
         [0.3, 0.4, 0.5],
         [0.2, 0.3, 0.4],
         [0.1, 0.2, 0.3],
-        [0.0, 0.1, 0.2],
-        [0.1, 0.2, 0.3],
         [0.2, 0.3, 0.4],
-        [0.3, 0.4, 0.5]
+        [0.3, 0.4, 0.5],
+        [0.4, 0.5, 0.6]
     ]
     
     var body: some View {
@@ -29,21 +29,21 @@ struct StarView: View {
                     Circle()
                         .fill(Color("moon"))
                         .opacity(opacity[moonPhase()][0])
-                        .frame(width: 1.5, height: 1.5)
+                        .frame(width: 2, height: 2)
                         .position(randomCirclePosition(in: geometry.size))
                 }
                 ForEach(0..<100) { _ in
                     Circle()
                         .fill(Color("moon"))
                         .opacity(opacity[moonPhase()][1])
-                        .frame(width: 2.5, height: 2.5)
+                        .frame(width: 3, height: 3)
                         .position(randomCirclePosition(in: geometry.size))
                 }
                 ForEach(0..<50) { _ in
                     Circle()
                         .fill(Color("moon"))
                         .opacity(opacity[moonPhase()][2])
-                        .frame(width: 3.5, height: 3.5)
+                        .frame(width: 4, height: 4)
                         .position(randomCirclePosition(in: geometry.size))
                 }
             }

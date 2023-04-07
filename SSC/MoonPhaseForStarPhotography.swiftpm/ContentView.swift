@@ -30,6 +30,7 @@ struct ContentView: View {
 struct MainView: View {
     
     @State var today = Date()
+    
     var todayMoon = MoonData()
     
     var dayFormatter: DateFormatter {
@@ -39,27 +40,30 @@ struct MainView: View {
     }
     
     var body: some View {
-        VStack (spacing: 100) {
+        VStack (spacing: 120) {
             VStack {
                 Text("\(today, formatter: dayFormatter)")
                     .foregroundColor(.white)
                     .onAppear {
                         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
-                            self.today = Date()
+                            self.today = today
                         }
                     }
-                    .font(.system(size: 20))
+                    .font(.system(size: 32, weight: .light))
                 Text(todayMoon.moonExpression[moonPhase()].title)
                     .foregroundColor(.white)
-                    .font(.system(size: 40, weight: .medium))
+                    .font(.system(size: 64, weight: .medium))
             }
             MoonView()
             Text(todayMoon.moonExpression[moonPhase()].description)
                 .foregroundColor(.white)
-                .font(.system(size: 20))
+                .font(.system(size: 28, weight: .light))
                 .multilineTextAlignment(.center)
-                .frame(width: 340)
-                .lineSpacing(4)
+                .frame(width: 640)
+                .lineSpacing(8)
+        }
+        .onTapGesture {
+            today = Calendar.current.date(byAdding: .day, value: 1, to: today)!
         }
     }
 }
