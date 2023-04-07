@@ -23,6 +23,7 @@ struct MoonData {
 }
 
 func moonPhase() -> Int {
+    
     let lunarPhaseStart = Date("01/07/1970")
     let daysSinceStart = Calendar.current.dateComponents(
         [.day],
@@ -35,10 +36,9 @@ func moonPhase() -> Int {
     let lunarMonthPart = lunarMonths / 637861
     let secondsSinceMainPhase = lunarMonths % 637861
 
-    let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
-//    let index = 0
+//    let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
+    let index = 7
 //    let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
 //    let lunarPhase = lunarPhases[index]
-
     return index
 }
