@@ -57,19 +57,14 @@ struct MainView: View {
             MoonView()
             Text(todayMoon.moonExpression[moonPhase()].description)
                 .foregroundColor(.white)
-                .font(.system(size: 28, weight: .light))
+                .font(.system(size: 24, weight: .light))
                 .multilineTextAlignment(.center)
                 .frame(width: 640)
                 .lineSpacing(8)
         }
         .onTapGesture {
             today = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+            print(today)
         }
-    }
-}
-
-struct Previews_ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
