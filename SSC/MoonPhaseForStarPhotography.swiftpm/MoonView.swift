@@ -16,14 +16,16 @@ struct MoonView: View {
             Circle()
                 .foregroundColor(Color("shadow"))
             Image("\(moonPhase())")
+                .resizable()
                 .blur(radius: throb ? 8 : 16 )
                 .animation(.easeInOut(duration: 2).repeatForever(), value: throb)
                 .onAppear {
                     throb.toggle()
                 }
             Image("\(moonPhase())")
+                .resizable()
         }
-        .frame(width: 200, height: 200)
+        .frame(width: 320, height: 320)
         .rotationEffect(.degrees(-20))
     }
 }
