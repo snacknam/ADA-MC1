@@ -9,20 +9,21 @@ import SwiftUI
 
 struct MoonView: View {
     
+    @Binding var today: Date
     @State var throb = false
-    
+
     var body: some View {
         ZStack {
             Circle()
                 .foregroundColor(Color("shadow"))
-            Image("\(moonPhase())")
+            Image("\(moonPhase(today))")
                 .resizable()
                 .blur(radius: throb ? 8 : 16 )
                 .animation(.easeInOut(duration: 2).repeatForever(), value: throb)
                 .onAppear {
                     throb.toggle()
                 }
-            Image("\(moonPhase())")
+            Image("\(moonPhase(today))")
                 .resizable()
         }
         .frame(width: 320, height: 320)

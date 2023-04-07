@@ -19,26 +19,27 @@ struct MoonData {
         Moons(title: "last quarter", description: "The moon is half-lit again, but the stars are still putting on a show. Get your camera ready for some stunning shots!"),
         Moons(title: "waning crescent", description: "The moon is almost gone, but the stars are still shining bright. Take advantage of the dark sky and capture some amazing photos tonight!"),
     ]
-    
 }
 
-func moonPhase() -> Int {
+func moonPhase(_ date: Date) -> Int {
     
     let lunarPhaseStart = Date("01/07/1970")
     let daysSinceStart = Calendar.current.dateComponents(
         [.day],
         from: lunarPhaseStart,
-        to: Date()
+        to: date
     ).day!
-
+    
     let seconds = daysSinceStart * 86400 + 12300
     let lunarMonths = seconds % 2551443
     let lunarMonthPart = lunarMonths / 637861
     let secondsSinceMainPhase = lunarMonths % 637861
-
-//    let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
-    let index = 7
-//    let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
-//    let lunarPhase = lunarPhases[index]
+    
+    let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
+    //    let index = 7
+    //    let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
+    //    let lunarPhase = lunarPhases[index]
+    
+    print("문페이즈\(date)")
     return index
 }
