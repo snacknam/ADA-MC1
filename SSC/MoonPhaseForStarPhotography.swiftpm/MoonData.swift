@@ -39,7 +39,5 @@ func moonPhase(_ date: Date) -> Int {
     //    let index = 7
     //    let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
     //    let lunarPhase = lunarPhases[index]
-    
-    print("문페이즈\(date)")
     return index
 }
