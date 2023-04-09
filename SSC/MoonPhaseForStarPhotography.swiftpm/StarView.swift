@@ -12,14 +12,14 @@ struct StarView: View {
     @Binding var today: Date
     @State var position = CGPoint(x: 0, y: 0)
     @State var opacity: [[Double]] = [
-        [0.5, 0.6, 0.7],
+        [0.8, 0.9, 1.0],
+        [0.6, 0.7, 0.8],
         [0.4, 0.5, 0.6],
-        [0.3, 0.4, 0.5],
         [0.2, 0.3, 0.4],
-        [0.1, 0.2, 0.3],
+        [0.0, 0.1, 0.2],
         [0.2, 0.3, 0.4],
-        [0.3, 0.4, 0.5],
-        [0.4, 0.5, 0.6]
+        [0.4, 0.5, 0.6],
+        [0.6, 0.7, 0.8]
     ]
     
     var body: some View {
@@ -47,10 +47,10 @@ struct StarView: View {
                         .position(randomCirclePosition(in: geometry.size))
                 }
             }
-            .animation(Animation.linear(duration: 80).repeatForever(), value: position)
+            .animation(Animation.linear(duration: 60).repeatForever(), value: position)
             .onAppear {
                 self.position = randomCirclePosition(in: geometry.size)
-                Timer.scheduledTimer(withTimeInterval: 80, repeats: true) { _ in
+                Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
                     self.position = randomCirclePosition(in: geometry.size)
                 }
             }
@@ -58,8 +58,8 @@ struct StarView: View {
     }
     
     func randomCirclePosition(in size: CGSize) -> CGPoint {
-        let x = CGFloat.random(in: -100..<size.width+100)
-        let y = CGFloat.random(in: -100..<size.height+100)
+        let x = CGFloat.random(in: -50..<size.width+50)
+        let y = CGFloat.random(in: -50..<size.height+50)
         return CGPoint(x: x, y: y)
     }
 }
