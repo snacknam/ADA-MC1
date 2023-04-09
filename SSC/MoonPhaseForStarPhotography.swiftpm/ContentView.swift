@@ -10,7 +10,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color("bg")
+            Color("background")
             StarView(today: $today)
             MainView(today: $today)
         }
@@ -57,7 +57,7 @@ struct MainView: View {
                         .font(.system(size: 64, weight: .medium))
                 }
                 MoonView(today: $today)
-                    .animation(Animation.easeInOut(duration: 0.5), value: today)
+                    .animation(Animation.easeInOut(duration: 0.3), value: today)
                 Text(todayMoon.moonExpression[moonPhase(today)].description)
                     .foregroundColor(.white)
                     .font(.system(size: 24, weight: .light))
@@ -69,19 +69,23 @@ struct MainView: View {
             VStack {
                 Spacer()
                 HStack {
-                    Image("left")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .onTapGesture {
-                            today = Calendar.current.date(byAdding: .day, value: -1, to: today)!
-                        }
+                    Button {
+                        today = Calendar.current.date(byAdding: .day, value: -1, to: today)!
+                    } label: {
+                        Image(systemName: "arrow.backward")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 32, height: 32)
+                    }
                     Spacer()
-                    Image("right")
-                        .resizable()
-                        .frame(width: 40, height: 40)
-                        .onTapGesture {
-                            today = Calendar.current.date(byAdding: .day, value: 1, to: today)!
-                        }
+                    Button {
+                        today = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+                    } label: {
+                        Image(systemName: "arrow.forward")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 32, height: 32)
+                    }
                 }
             }
             .padding(.all, 40)

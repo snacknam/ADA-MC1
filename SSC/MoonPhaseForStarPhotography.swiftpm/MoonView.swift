@@ -15,10 +15,12 @@ struct MoonView: View {
     var body: some View {
         ZStack {
             Circle()
-                .foregroundColor(Color("shadow"))
+                .foregroundColor(Color("background"))
+            Image("shadow")
+                .resizable()
             Image("\(moonPhase(today))")
                 .resizable()
-                .blur(radius: throb ? 8 : 16 )
+                .blur(radius: throb ? 8 : 24)
                 .animation(.easeInOut(duration: 2).repeatForever(), value: throb)
                 .onAppear {
                     throb.toggle()
