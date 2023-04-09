@@ -29,41 +29,55 @@ struct StarView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ForEach(0..<150) { _ in
+                ForEach(0..<100) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][0])
                         .frame(width: 2, height: 2)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                ForEach(0..<100) { _ in
+                .animation(Animation.linear(duration: 60).repeatForever(), value: position)
+                .onAppear {
+                    self.position = randomCirclePosition(in: geometry.size)
+                    Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
+                        self.position = randomCirclePosition(in: geometry.size)
+                    }
+                }
+                ForEach(0..<50) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][1])
                         .frame(width: 3, height: 3)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                ForEach(0..<50) { _ in
+                .animation(Animation.linear(duration: 80).repeatForever(), value: position)
+                .onAppear {
+                    self.position = randomCirclePosition(in: geometry.size)
+                    Timer.scheduledTimer(withTimeInterval: 80, repeats: true) { _ in
+                        self.position = randomCirclePosition(in: geometry.size)
+                    }
+                }
+                ForEach(0..<25) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][2])
                         .frame(width: 4, height: 4)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-            }
-            .animation(Animation.linear(duration: 60).repeatForever(), value: position)
-            .onAppear {
-                self.position = randomCirclePosition(in: geometry.size)
-                Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
+                .animation(Animation.linear(duration: 100).repeatForever(), value: position)
+                .onAppear {
                     self.position = randomCirclePosition(in: geometry.size)
+                    Timer.scheduledTimer(withTimeInterval: 100, repeats: true) { _ in
+                        self.position = randomCirclePosition(in: geometry.size)
+                    }
                 }
             }
         }
     }
     
     func randomCirclePosition(in size: CGSize) -> CGPoint {
-        let x = CGFloat.random(in: -50..<size.width+50)
-        let y = CGFloat.random(in: -50..<size.height+50)
+        let x = CGFloat.random(in: -20..<size.width+20)
+        let y = CGFloat.random(in: -20..<size.height+20)
         return CGPoint(x: x, y: y)
     }
 }

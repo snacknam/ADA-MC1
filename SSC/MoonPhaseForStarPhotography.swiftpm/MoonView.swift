@@ -14,8 +14,6 @@ struct MoonView: View {
 
     var body: some View {
         ZStack {
-            Circle()
-                .foregroundColor(Color("background"))
             Image("shadow")
                 .resizable()
             Image("\(moonPhase(today))")
@@ -28,7 +26,7 @@ struct MoonView: View {
             Image("\(moonPhase(today))")
                 .resizable()
         }
-        .frame(width: 320, height: 320)
+        .frame(width: 200, height: 200)
         .rotationEffect(.degrees(-20))
     }
 }
