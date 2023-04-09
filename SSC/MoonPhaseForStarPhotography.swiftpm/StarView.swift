@@ -29,7 +29,7 @@ struct StarView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ForEach(0..<100) { _ in
+                ForEach(0..<75) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][0])
@@ -77,7 +77,7 @@ struct StarView: View {
     
     func randomCirclePosition(in size: CGSize) -> CGPoint {
         let x = CGFloat.random(in: -20..<size.width+20)
-        let y = CGFloat.random(in: -20..<size.height+20)
+        let y = CGFloat.random(in: -20..<size.height+40)
         return CGPoint(x: x, y: y)
     }
 }

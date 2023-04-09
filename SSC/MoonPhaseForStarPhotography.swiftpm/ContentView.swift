@@ -21,10 +21,20 @@ struct ContentView: View {
         
         ZStack {
             Color("background")
+                .edgesIgnoringSafeArea(.all)
             StarView(today: $today)
             MainView(today: $today)
+//            VStack {
+//                HStack{
+//                    DatePicker("", selection: $today, displayedComponents: .date)
+//                        .datePickerStyle(CompactDatePickerStyle())
+//                        .labelsHidden()
+//                    Spacer()
+//                }
+//                Spacer()
+//            }
+//            .padding(.all, 20)
         }
-        .edgesIgnoringSafeArea(.all)
         .gesture(swipeGesture)
 //        .onAppear {
 //            guard let url = Bundle.main.url(forResource: "bgm", withExtension: "mp3") else { return }

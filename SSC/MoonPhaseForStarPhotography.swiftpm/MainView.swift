@@ -22,7 +22,7 @@ struct MainView: View {
     
     var body: some View {
         VStack (spacing: 100) {
-            VStack {
+            VStack (spacing: 4) {
                 Text("\(today, formatter: dayFormatter)")
                     .foregroundColor(.white)
                     .onAppear {
@@ -30,7 +30,7 @@ struct MainView: View {
                             today = today
                         }
                     }
-                    .font(.system(size: 20, weight: .light))
+                    .font(.system(size: 20, weight: .regular))
                 Text(todayMoon.moonExpression[moonPhase(today)].title)
                     .foregroundColor(.white)
                     .font(.system(size: 40, weight: .medium))
