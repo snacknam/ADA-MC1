@@ -38,9 +38,9 @@ struct StarView: View {
                 }
                 .animation(Animation.linear(duration: 60).repeatForever(), value: position)
                 .onAppear {
-                    self.position = randomCirclePosition(in: geometry.size)
+                    position = randomCirclePosition(in: geometry.size)
                     Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
-                        self.position = randomCirclePosition(in: geometry.size)
+                        position = randomCirclePosition(in: geometry.size)
                     }
                 }
                 ForEach(0..<50) { _ in
@@ -50,11 +50,11 @@ struct StarView: View {
                         .frame(width: 3, height: 3)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                .animation(Animation.linear(duration: 80).repeatForever(), value: position)
+                .animation(Animation.linear(duration: 60).repeatForever(), value: position)
                 .onAppear {
-                    self.position = randomCirclePosition(in: geometry.size)
+                    position = randomCirclePosition(in: geometry.size)
                     Timer.scheduledTimer(withTimeInterval: 80, repeats: true) { _ in
-                        self.position = randomCirclePosition(in: geometry.size)
+                        position = randomCirclePosition(in: geometry.size)
                     }
                 }
                 ForEach(0..<25) { _ in
@@ -64,11 +64,11 @@ struct StarView: View {
                         .frame(width: 4, height: 4)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                .animation(Animation.linear(duration: 100).repeatForever(), value: position)
+                .animation(Animation.linear(duration: 60).repeatForever(), value: position)
                 .onAppear {
-                    self.position = randomCirclePosition(in: geometry.size)
+                    position = randomCirclePosition(in: geometry.size)
                     Timer.scheduledTimer(withTimeInterval: 100, repeats: true) { _ in
-                        self.position = randomCirclePosition(in: geometry.size)
+                        position = randomCirclePosition(in: geometry.size)
                     }
                 }
             }
