@@ -7,6 +7,11 @@
 
 import Foundation
 
+struct Moons {
+    let title: String
+    let description: String
+}
+
 struct MoonData {
     
     let moonExpression: [Moons] = [

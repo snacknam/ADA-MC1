@@ -16,17 +16,8 @@ struct ContentView: View {
             StarView(today: $today)
             MainView(weatherNumber: $weatherNumber, today: $today)
             CloudView(weatherNumber: $weatherNumber)
-                .animation(Animation.easeInOut(duration: 0.8), value: today)
-//            VStack {
-//                HStack{
-//                    DatePicker("", selection: $today, displayedComponents: .date)
-//                        .datePickerStyle(CompactDatePickerStyle())
-//                        .labelsHidden()
-//                    Spacer()
-//                }
-//                Spacer()
-//            }
-//            .padding(.all, 20)
+                .animation(Animation.easeInOut(duration: 0.8), value: weatherNumber)
+            
         }
         .onAppear {
             guard let url = Bundle.main.url(forResource: "bgm", withExtension: "mp3") else { return }

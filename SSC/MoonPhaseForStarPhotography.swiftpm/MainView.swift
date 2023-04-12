@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-
+    
+    @State var showBottomSheet = false
+    
     @Binding var weatherNumber: Int
     @Binding var today: Date
-    
+   
     var todayMoon = MoonData()
     
     var dayFormatter: DateFormatter {
@@ -34,7 +36,7 @@ struct MainView: View {
                                     today = today
                                 }
                             }
-                        .font(.system(size: 20, weight: .regular))
+                            .font(.system(size: 20, weight: .regular))
                     }
                     Text(todayMoon.moonExpression[moonPhase(today)].title)
                         .foregroundColor(.white)
@@ -51,6 +53,21 @@ struct MainView: View {
             }
             .padding(.top, 80)
             VStack {
+                HStack {
+                    Button {
+                        showBottomSheet = true
+                    } label: {
+                        Image(systemName: "calendar")
+                            .resizable()
+                            .foregroundColor(.white)
+                            .frame(width: 20, height: 20)
+                    }
+                    .sheet(isPresented: $showBottomSheet) {
+                        BottomSheetView(today: $today, showBottomSheet: $showBottomSheet)
+                    }
+                    Spacer()
+                }
+                .padding(.top, 16)
                 Spacer()
                 HStack {
                     Button {
@@ -77,17 +94,5 @@ struct MainView: View {
             .padding(.horizontal, 32)
             .padding(.bottom, 4)
         }
-    }
-}
-
-struct ModalView: View {
-    
-    @Environment(\.presentationMode) var presentation
-    
-    var body: some View {
-        ZStack {
-            Color("background")
-        }
-        .edgesIgnoringSafeArea(.all)
     }
 }

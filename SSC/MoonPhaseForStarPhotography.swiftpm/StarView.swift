@@ -29,45 +29,45 @@ struct StarView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                ForEach(0..<75) { _ in
+                ForEach(0..<80) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][0])
                         .frame(width: 2, height: 2)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                .animation(Animation.linear(duration: 60).repeatForever(), value: position)
+                .animation(Animation.linear(duration: 60), value: position)
                 .onAppear {
                     position = randomCirclePosition(in: geometry.size)
                     Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
                         position = randomCirclePosition(in: geometry.size)
                     }
                 }
-                ForEach(0..<50) { _ in
+                ForEach(0..<55) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][1])
                         .frame(width: 3, height: 3)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                .animation(Animation.linear(duration: 60).repeatForever(), value: position)
+                .animation(Animation.linear(duration: 60), value: position)
                 .onAppear {
                     position = randomCirclePosition(in: geometry.size)
-                    Timer.scheduledTimer(withTimeInterval: 80, repeats: true) { _ in
+                    Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
                         position = randomCirclePosition(in: geometry.size)
                     }
                 }
-                ForEach(0..<25) { _ in
+                ForEach(0..<30) { _ in
                     Circle()
                         .foregroundColor(Color("light"))
                         .opacity(opacity[moonPhase(today)][2])
                         .frame(width: 4, height: 4)
                         .position(randomCirclePosition(in: geometry.size))
                 }
-                .animation(Animation.linear(duration: 60).repeatForever(), value: position)
+                .animation(Animation.linear(duration: 60), value: position)
                 .onAppear {
                     position = randomCirclePosition(in: geometry.size)
-                    Timer.scheduledTimer(withTimeInterval: 100, repeats: true) { _ in
+                    Timer.scheduledTimer(withTimeInterval: 60, repeats: true) { _ in
                         position = randomCirclePosition(in: geometry.size)
                     }
                 }
@@ -76,8 +76,8 @@ struct StarView: View {
     }
     
     func randomCirclePosition(in size: CGSize) -> CGPoint {
-        let x = CGFloat.random(in: -20..<size.width+20)
-        let y = CGFloat.random(in: -20..<size.height+40)
+        let x = CGFloat.random(in: -40..<size.width+40)
+        let y = CGFloat.random(in: -40..<size.height+40)
         return CGPoint(x: x, y: y)
     }
 }

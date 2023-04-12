@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+let weathers: [String] = ["sun.max.fill", "sun.max.fill", "sun.max.fill", "cloud.sun.fill", "cloud.sun.fill", "cloud.sun.fill", "cloud.fill", "cloud.rain.fill"]
+
 struct CloudView: View {
     
     @State var position: CGPoint = CGPoint(x: 0, y: 0)
@@ -21,9 +23,6 @@ struct CloudView: View {
                     .foregroundColor(.gray)
                     .opacity(opacity[weatherNumber])
                     .blur(radius: 30)
-                    .onAppear {
-                        position = randomCirclePosition(in: geometry.size)
-                        }
                     .position(randomCirclePosition(in: geometry.size))
                 }
             ForEach(0..<4) { _ in
@@ -32,9 +31,6 @@ struct CloudView: View {
                     .foregroundColor(.gray)
                     .opacity(opacity[weatherNumber])
                     .blur(radius: 30)
-                    .onAppear {
-                        position = randomCirclePosition(in: geometry.size)
-                        }
                     .position(randomCirclePosition(in: geometry.size))
                 }
             ForEach(0..<2) { _ in
@@ -43,9 +39,6 @@ struct CloudView: View {
                     .foregroundColor(.gray)
                     .opacity(opacity[weatherNumber])
                     .blur(radius: 30)
-                    .onAppear {
-                        position = randomCirclePosition(in: geometry.size)
-                        }
                     .position(randomCirclePosition(in: geometry.size))
                 }
             }
