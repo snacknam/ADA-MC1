@@ -6,24 +6,17 @@ var player: AVAudioPlayer?
 
 struct ContentView: View {
     
-    @State var today = Date()
+    @State var today: Date = Date()
+    @State var weatherNumber: Int = Int.random(in: 0...5)
     
     var body: some View {
-        
-        let swipeGesture = DragGesture()
-            .onEnded { value in
-                if value.translation.width > 0 {
-                    today = Calendar.current.date(byAdding: .day, value: -1, to: today)!
-                } else {
-                    today = Calendar.current.date(byAdding: .day, value: 1, to: today)!
-                }
-            }
-        
         ZStack {
             Color("background")
                 .edgesIgnoringSafeArea(.all)
             StarView(today: $today)
-            MainView(today: $today)
+            MainView(weatherNumber: $weatherNumber, today: $today)
+            CloudView(weatherNumber: $weatherNumber)
+                .animation(Animation.easeInOut(duration: 0.8), value: today)
 //            VStack {
 //                HStack{
 //                    DatePicker("", selection: $today, displayedComponents: .date)
@@ -35,16 +28,15 @@ struct ContentView: View {
 //            }
 //            .padding(.all, 20)
         }
-        .gesture(swipeGesture)
-//        .onAppear {
-//            guard let url = Bundle.main.url(forResource: "bgm", withExtension: "mp3") else { return }
-//            do {
-//                player = try AVAudioPlayer(contentsOf: url)
-//                player?.numberOfLoops = -1
-//                player?.play()
-//            } catch (let err) {
-//                print(err.localizedDescription)
-//            }
-//        }
+        .onAppear {
+            guard let url = Bundle.main.url(forResource: "bgm", withExtension: "mp3") else { return }
+            do {
+                player = try AVAudioPlayer(contentsOf: url)
+                player?.numberOfLoops = -1
+                player?.play()
+            } catch (let err) {
+                print(err.localizedDescription)
+            }
+        }
     }
 }
