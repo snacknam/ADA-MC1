@@ -35,7 +35,7 @@ struct BottomSheetView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                DatePicker(selection: $today, in: ...Date(), displayedComponents: [.date]) {
+                DatePicker(selection: $today, displayedComponents: [.date]) {
                     Text("")
                 }
                 .padding(.horizontal, 8)
