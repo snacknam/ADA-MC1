@@ -8,13 +8,13 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "MoonPhaseForStarPhotography",
+    name: "Moon",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "MoonPhaseForStarPhotography",
+            name: "Moon",
             targets: ["AppModule"],
             bundleIdentifier: "com.kwansiknam.MoonPhaseForStarPhotography",
             teamIdentifier: "Q535Z3S7Z3",
