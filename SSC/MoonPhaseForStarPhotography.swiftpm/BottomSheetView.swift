@@ -35,6 +35,10 @@ struct BottomSheetView: View {
                     }
                 }
                 .padding(.horizontal, 16)
+                Text("Choose a date to check the night sky.")
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundColor(Color("sub"))
+                    .padding(.top, 8)
                 DatePicker(selection: $today, displayedComponents: [.date]) {
                     Text("")
                 }

@@ -15,18 +15,18 @@ struct Moons {
 struct MoonData {
     
     let moonExpression: [Moons] = [
-        Moons(title: "New Moon", description: "The stars are shining bright tonight, capture the beauty of the night sky in your photos!"),
-        Moons(title: "Waxing Crescent", description: "A thin sliver of a moon in the sky, but the stars are still shining bright. Get your camera ready for a stunning shot!"),
-        Moons(title: "Waxing Crescent", description: "A thin sliver of a moon in the sky, but the stars are still shining bright. Get your camera ready for a stunning shot!"),
-        Moons(title: "First Quater", description: "The moon is half-lit tonight, but the stars are still out in full force. Capture the contrast of light and dark in your photos!"),
-        Moons(title: "Waxing Gibbous", description: "The moon is getting fuller and brighter, making it challenging to capture the stars. Take advantage of the moon's brightness and capture some stunning shots of it instead!"),
-        Moons(title: "Waxing Gibbous", description: "The moon is getting fuller and brighter, making it challenging to capture the stars. Take advantage of the moon's brightness and capture some stunning shots of it instead!"),
-        Moons(title: "Full Moon", description: "The moon is shining so brightly tonight, it's difficult to capture the stars in your photos. Try photographing the beautiful full moon instead!"),
-        Moons(title: "Waning Gibbous", description: "The moon is starting to fade, and the stars are getting easier to see. But don't forget about the beautiful moon, try taking some unique shots of it before it disappears!"),
-        Moons(title: "Waning Gibbous", description: "The moon is starting to fade, and the stars are getting easier to see. But don't forget about the beautiful moon, try taking some unique shots of it before it disappears!"),
-        Moons(title: "Third Quarter", description: "The moon is half-lit again, but the stars are still putting on a show. Get your camera ready for some stunning shots!"),
-        Moons(title: "Waning Crescent", description: "The moon is almost gone, but the stars are still shining bright. Take advantage of the dark sky and capture some amazing photos tonight!"),
-        Moons(title: "Waning Crescent", description: "The moon is almost gone, but the stars are still shining bright. Take advantage of the dark sky and capture some amazing photos tonight!"),
+        Moons(title: "New Moon", description: "The night sky is feeling a little empty tonight, but don't be fooled! It's the perfect time to capture the twinkling stars in all their glory."),
+        Moons(title: "Waxing Crescent", description: "A sliver of a moon is gracing us with its presence tonight, like a shy smile in the dark. Take a picture and share the beauty!"),
+        Moons(title: "Waxing Crescent", description: "A sliver of a moon is gracing us with its presence tonight, like a shy smile in the dark. Take a picture and share the beauty!"),
+        Moons(title: "First Quater", description: "Half moon, half mystery. The perfect time to capture the contrast of light and dark in the night sky."),
+        Moons(title: "Waxing Gibbous", description: "The moon is growing fuller by the night, like a balloon filling with light. Don't miss the chance to snap a photo of this cosmic expansion!"),
+        Moons(title: "Waxing Gibbous", description: "The moon is growing fuller by the night, like a balloon filling with light. Don't miss the chance to snap a photo of this cosmic expansion!"),
+        Moons(title: "Full Moon", description: "The roundest, brightest, most mesmerizing moon has risen above us. Don't let its beauty go to waste - snap a picture that captures the magic!"),
+        Moons(title: "Waning Gibbous", description: "The moon is starting to shrink, but its luminosity remains undiminished. Take advantage of its lingering presence and snap a photo before it disappears!"),
+        Moons(title: "Waning Gibbous", description: "The moon is starting to shrink, but its luminosity remains undiminished. Take advantage of its lingering presence and snap a photo before it disappears!"),
+        Moons(title: "Third Quarter", description: "The moon is waning, but that doesn't mean the sky is any less beautiful. Use this time to capture the balance between light and shadow in your photography."),
+        Moons(title: "Waning Crescent", description: "The moon is almost gone, but the stars are still shining bright. Take a photo that showcases the contrast between the moon's fading light and the sparkling sky!"),
+        Moons(title: "Waning Crescent", description: "The moon is almost gone, but the stars are still shining bright. Take a photo that showcases the contrast between the moon's fading light and the sparkling sky!"),
     ]
 }
 

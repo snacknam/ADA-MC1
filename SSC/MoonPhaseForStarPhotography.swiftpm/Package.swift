@@ -8,19 +8,19 @@ import PackageDescription
 import AppleProductTypes
 
 let package = Package(
-    name: "Moon",
+    name: "MellowYellows",
     platforms: [
         .iOS("15.2")
     ],
     products: [
         .iOSApplication(
-            name: "Moon",
+            name: "MellowYellows",
             targets: ["AppModule"],
             bundleIdentifier: "com.kwansiknam.MoonPhaseForStarPhotography",
             teamIdentifier: "Q535Z3S7Z3",
             displayVersion: "1.0",
             bundleVersion: "1",
-            appIcon: .placeholder(icon: .bicycle),
+            appIcon: .asset("AppIcon"),
             accentColor: .presetColor(.yellow),
             supportedDeviceFamilies: [
                 .pad,

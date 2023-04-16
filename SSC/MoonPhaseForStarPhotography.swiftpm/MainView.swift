@@ -57,7 +57,7 @@ struct MainView: View {
                     .foregroundColor(.white)
                     .font(.system(size: 18, weight: .light))
                     .multilineTextAlignment(.center)
-                    .frame(width: 320, height: 160, alignment: .top)
+                    .frame(width: 340, height: 160, alignment: .top)
                     .lineSpacing(4)
                     .opacity(isActive ? 1 : 0)
             }
