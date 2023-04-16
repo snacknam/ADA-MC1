@@ -19,6 +19,7 @@ struct ContentView: View {
                 .animation(Animation.easeInOut(duration: 0.8), value: weatherNumber)
             
         }
+        .preferredColorScheme(.dark)
         .onAppear {
             guard let url = Bundle.main.url(forResource: "bgm", withExtension: "mp3") else { return }
             do {
