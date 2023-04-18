@@ -1,10 +1,3 @@
-//
-//  MainView.swift
-//  MoonPhaseForStarPhotography
-//
-//  Created by 관식 on 2023/04/10.
-//
-
 import SwiftUI
 
 struct MainView: View {
@@ -26,7 +19,7 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
-            VStack (spacing: 100) {
+            VStack (spacing: 90) {
                 VStack (spacing: 4) {
                     HStack {
                         Image(systemName: weathers[weatherNumber])
@@ -61,7 +54,7 @@ struct MainView: View {
                     .lineSpacing(4)
                     .opacity(isActive ? 1 : 0)
             }
-            .padding(.top, 80)
+            .padding(.top, 60)
             VStack {
                 HStack {
                     Button {

@@ -1,10 +1,3 @@
-//
-//  BottomSheetView.swift
-//  MoonPhaseForStarPhotography
-//
-//  Created by 관식 on 2023/04/13.
-//
-
 import SwiftUI
 
 struct BottomSheetView: View {

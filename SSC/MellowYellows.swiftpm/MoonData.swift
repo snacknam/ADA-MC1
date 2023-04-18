@@ -1,10 +1,3 @@
-//
-//  MoonData.swift
-//  MoonPhaseForStarPhotography
-//
-//  Created by 관식 on 2023/04/05.
-//
-
 import Foundation
 
 struct Moons {
@@ -31,25 +24,6 @@ struct MoonData {
 }
 
 func moonPhase(_ date: Date) -> Int {
-    
-//    let lunarPhaseStart = Date("01/07/1970")
-//    let daysSinceStart = Calendar.current.dateComponents(
-//        [.day],
-//        from: lunarPhaseStart,
-//        to: date
-//    ).day!
-//
-//    let seconds = daysSinceStart * 86400 + 12300
-//    let lunarMonths = seconds % 2551443
-//    let lunarMonthPart = lunarMonths / 637861
-//    let secondsSinceMainPhase = lunarMonths % 637861
-//
-//    let index = 2 * lunarMonthPart + (86400 <= secondsSinceMainPhase ? 1 : 0)
-//    //    let index = 7
-//    //    let lunarPhases = ["🌑", "🌒", "🌓", "🌔", "🌕", "🌖", "🌗", "🌘"]
-//    //    let lunarPhase = lunarPhases[index]
-//    return index
-    
     let lunarPhaseStart = Date("01/07/1970")
     let daysSinceStart = Calendar.current.dateComponents([.day], from: lunarPhaseStart, to: date).day!
     let seconds = daysSinceStart * 86400 + 12300

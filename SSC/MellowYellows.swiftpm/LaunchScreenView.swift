@@ -1,10 +1,3 @@
-//
-//  LaunchScreenView.swift
-//  MellowYellows
-//
-//  Created by 관식 on 2023/04/16.
-//
-
 import SwiftUI
 
 struct LaunchScreenView: View {

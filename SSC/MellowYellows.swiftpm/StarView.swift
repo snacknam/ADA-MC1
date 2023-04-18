@@ -1,10 +1,3 @@
-//
-//  StarView.swift
-//  MoonPhaseForStarPhotography
-//
-//  Created by 관식 on 2023/04/07.
-//
-
 import SwiftUI
 
 struct StarView: View {
